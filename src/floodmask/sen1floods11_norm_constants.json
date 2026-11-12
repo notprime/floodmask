@@ -1,0 +1,28 @@
+{
+  "vendored_from": "https://github.com/Governor6191/sar-flood-extent/blob/f47351434660fde52d084f39bcfdd15bed4b917c/src/sen1floods11_norm_constants.json (MIT)",
+  "source": "empirical recovery from original Sen1Floods11 S1Hand dB tiles",
+  "transform": "standardized = (dB - mean) / std, per channel",
+  "n_tiles": 8,
+  "channels": {
+    "VV": {
+      "mean": -10.85569763176121,
+      "std": 4.762064933575756,
+      "fit_slope": 0.2099929366668918,
+      "fit_intercept": 2.279619825261359,
+      "r2": 0.9999999999999993,
+      "max_abs_residual": 2.3805933047071903e-07,
+      "raw_db_mean": -11.656603074085956,
+      "raw_db_std": 4.9793473691239445
+    },
+    "VH": {
+      "mean": -18.10330009462964,
+      "std": 6.0552577971302295,
+      "fit_slope": 0.16514573507901353,
+      "fit_intercept": 2.989682801483587,
+      "r2": 0.9999999999999993,
+      "max_abs_residual": 2.3831521822614832e-07,
+      "raw_db_mean": -18.38208275589075,
+      "raw_db_std": 5.5387352178638265
+    }
+  }
+}

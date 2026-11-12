@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "floodmask"
+version = "0.1.0"
+description = "Sentinel-1 SAR flood-extent mapping pipeline: STAC discovery, patch-based UNet inference, pre/post change detection"
+requires-python = ">=3.12"
+dependencies = [
+    "numpy",
+    "torch",                        # CPU wheel is enough; see README for the index URL
+    "segmentation-models-pytorch",  # UNet-ResNet34 definition (HF repo ships weights only)
+    "huggingface_hub",              # download model.pt + norm constants
+    "pystac-client",                # STAC search on Earth Search
+    "rasterio",                     # GeoTIFF I/O, GCP warp, vectorization
+    "shapely",                      # AOI geometry, GeoJSON polygons
+    "boto3",                        # AWS SDK for Python
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.scripts]
+floodmask = "floodmask.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+floodmask = ["*.json"]   # sen1floods11_norm_constants.json
